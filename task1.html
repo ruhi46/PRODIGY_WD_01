@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Swapnil Sontakke">
+        <meta name="desciption" content="t\about the panipuri shop">
+        <title>about panipuri shop</title>
+        <link rel="icon" href="img/panipuri.img/pnimg.jpeg" type="image/x-icon">
+        <link rel="stylesheet" >
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito+Sans&display=swap');
+/*||Reset*/
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+img{
+    display:block;
+    max-width: 100%;
+    height:auto;
+}
+input,
+ button,
+ textarea{
+    font:inherit;
+}
+/*|| VARIABLES*/
+     
+:root {
+    /*FONTS*/
+    --FF:"Nunito",sans-serif;
+    --FF-HEADINGS:"Fugaz One",cursive;
+    --FS:clamp(1rem, 2.2vh, 1.5rem);
+    /*COLORS*/
+    --BGCOLOR-FADE:rgb(252, 220, 160);
+    --BGCOLOR:orange;
+    --BGIMAGE:linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
+    --BODY-BGCOLOR : #fff;
+    --BORDER-COLOR:#333;
+    --BUTTON-COLOR:#FFF;
+    --FONT-COLOR:#000;
+    --HEADER-BGCOLOR:#000;
+    --HEADER-COLOR:#FFF;
+    --HERO-BGCOLOR:#bb1000;
+    --HERO-COLOR:#fff;
+    --HIGHLIGHT-COLOR:#bb1000;
+    --LINK-ACTIVE:orange;
+    --LINK-COLOR:#000;
+    --LINK-HOVER:hsla(0, 0%, 0%, 0.6);
+    --NAV-BGCOLOR:#FFF;
+
+/*BORDERS*/
+--BORDERS:1px solid var(--BORDER-COLOR);
+--BORDER-RADIUS: 15px;
+
+/*STANDARD PADDING*/
+    --PADDING-TOBO:0.25em;
+    --PADDING-SIDE:2.5%;
+    /*STANDARD MARGIN*/
+    --MARGIN:clamp(1rem, 2.5vh, 1.5em);
+
+
+}
+/*
+@media(prefers-color-scheme:dark){
+   :root{
+      --BGCOLOR-FADE:grey;
+      --BGCOLOR:#000;
+      --BODY-BGCOLOR:#333;
+      --BORDER-COLOR:whitesmoke;
+      --BUTTON-COLOR:#000;
+      --FONT-COLOR:WHITESMOKE;
+      --HEADER-COLOR:whitesmoke;
+      --HERO-COLOR:#333;
+      --HIGHLIGHT-COLOR:WHITESMOKE;
+      --LINK-ACTIVE:rgb(239, 182, 74);
+      --LINK-COLOR:whitesmoke;
+      --LINK-HOVER:ORANGE;
+      --NAV-BGCOLOR:rgb(20, 20, 20);
+   }
+}*/
+/*||UTILITY CLASSES*/
+.offscreen{
+    position:absolute;
+    left: -10000px;
+}
+.nowrap{
+    white-space: nowarp;
+}
+.center{
+    text-align: center;
+}
+/*||GENRAL STYLES*/
+html{
+    scroll-behavior: smooth;
+    font-size: var(--FS);
+   font-family: 'Kaushan Script', cursive;
+   background-color: var(--BGCOLOR);
+   background-image: var(--BGIMAGE);
+}
+body{
+    background-color: var(--BODY-BGCOLOR);
+    color: var(--FONT-COLOR);
+    
+  margin: 0 auto;
+    border-left: var(--BORDERS);
+    border-right: var(--BORDERS);
+    box-shadow: 0 0 40px var(--BORDER-COLOR);
+
+}
+h1,h2,h3{
+    font-family: var(--FF-HEADINGS);
+    letter-spacing: 0.1em;
+}
+h2,h3{
+    margin-bottom: 1em;
+    color:var(--HIGHLIGHT-COLOR)
+}
+p{
+    line-height: 1.5;
+}
+ a:any-link{
+    color:var(--LINK-COLOR)
+ }
+ a:hover, a:focus-visible{
+    color:var(--LINK-HOVER)
+ }
+ a:active{
+    color:var(--LINK-ACTIVE)
+ }
+
+ /*||HEADER SECTION*/
+
+ .header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+ }
+ .header__h1{
+    text-align: center;
+    background-color:var(--HEADER-BGCOLOR);
+    color: VAR(--HEADER-COLOR);
+    padding: var(--PADDING-TOBO) var(--PADDING-SIDE);
+   
+
+ }
+ .header__nav{
+    background-color: var(--NAV-BGCOLOR);
+    border-bottom: var(--BORDERS);
+    font-weight: bold;
+    box-shadow: 0 6px 5px -5px var(--BORDER-COLOR);
+ }
+ .header__ul{
+    padding:var(--PADDING-TOBO) var(--PADDING-SIDE);
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap:1rem;
+ }
+ /*||  Hero*/
+ .hero{
+    position: relative;
+ }
+ .hero__h2{
+    background-color:var(--HERO-BGCOLOR);
+    color:var(--HERO-COLOR);
+    padding:0.25em 0.5em;
+    text-shadow: 2px 2px 5px var(--BORDER-COLOR);
+    position: absolute;
+   left:20px;
+   top:-100px;
+   animation:showWelcome 0.5s ease-in-out 1s forwards;
+ }
+ @keyframes showWelcome{
+    0%{
+        top: -20px;
+        transform:skew(0deg, -5deg)scaleY(0);
+    }
+    80%{
+        top:30px;
+        transform:skew(10deg, -5deg)scaleY(1.2);
+    }
+    100%{
+        top:20px;
+        transform:skew(-10deg, -5deg)scaleY(1);
+    }
+ }
+ /*|| fOOTER*/
+ .footer{
+    position: sticky;
+    bottom: 0;
+    background-color: var(--HEADER-BGCOLOR);
+    color:var(--HEADER-COLOR);
+    padding:var(--PADDING-TOBO) var(--PADDING-SIDE);
+    text-align: center;
+ }
+ /*|| MAIN*/
+
+ .main{
+    padding:var(--PADDING-TOBO) var(--PADDING-SIDE)
+ }
+ .main__article{
+    scroll-margin-top:6.5rem ;
+   margin: var(--MARGIN);
+ }
+ .main__article:first-child{
+    margin-top: 1em;
+ }
+ .main__article:last-child{
+    min-height: calc(100vh - 20rem);
+ }
+ /*|| About*/
+
+ .about__qna{
+    margin:var(--MARGIN);
+ }
+ .about__qna-answer{
+    margin-top:1em;
+ }
+ /*CONTACT*/
+ .contact__h2{
+    margin:0;
+ }
+
+ .contact__fieldset{
+   border:none;
+ }
+ .contact__p{
+   margin:1em 0;
+ }
+ .contact__label{
+   display: block;
+   font-weight: bold;
+ }
+ .contact__input,
+ .contact__textarea{
+   padding:0.5em;
+   border-radius: var(--BORDER-RADIUS);
+   border-width:2px;
+   width:100%
+ }
+ .contact__button{
+   
+   padding:0.5em;
+   border-radius: var(--BORDER-RADIUS);
+   background-color: var(--HIGHLIGHT-COLOR);
+   color:var(--BUTTON-COLOR);
+   font-weight: bold;
+ }
+
+ /*|| MENU*/
+
+ thead,tbody,tfoot,tr{
+   display: contents;
+ }
+ .menu__container{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-template-areas: 
+    "hd1 hd2 hd3"
+    "ml ml1 ml1p"
+    "ml ml2 ml2p"
+    "ml ml3 ml3p"
+    "sp sp1 sp1p"
+    "sp sp2 sp2p"
+    "sp sp3 sp3p"
+    "bu bu1 bu1p"
+    "bu bu2 bu2p"
+    "bu bu3 bu3p"
+    ;
+    gap:0.1em;
+    margin-bottom: 1em;
+ }
+ .menu__ml{
+   grid-area: ml;
+ }
+ .menu__sp{
+   grid-area: sp;
+ }
+ .menu__bu{
+   grid-area: bu;
+  
+ }
+ .menu__ml, .menu__sp,
+ .menu__bu,
+ .menu__header
+ 
+ {
+   color:var(--HIGHLIGHT-COLOR);
+   font-weight: bold;
+   height:100%;
+   display:grid;
+   place-content: center;
+
+ }
+ .menu__header, .menu__item{
+   width: 100%;
+   padding:1em;
+   border:medium ridge var(--BORDER-COLOR);
+ }
+ .menu__item{
+   display:grid;
+   place-content: center;
+ }
+ thead th:first-child{
+   border-top-left-radius:  var(--BORDER-RADIUS);
+ }
+ thead th:last-child{
+   border-top-right-radius:  var(--BORDER-RADIUS);
+ }
+ tfoot td{
+   border-bottom-left-radius:  var(--BORDER-RADIUS);
+   border-bottom-right-radius:  var(--BORDER-RADIUS);
+ }
+
+ @media screen and(min-width:567px) {
+     /* .header__h1::before{
+         content:;
+     
+           }
+           .header__h1::after{
+            content:'🔥';
+              };
+           }*/
+      
+ .menu__header,
+ .menu__ml,
+ .menu__sp,
+ .menu__ba{
+   font-size: 125%;
+ }
+}
+.header__h1__logo{
+   position: absolute;
+   border: #000;
+   border-width: 5px;
+   top:600px;
+   left: 3px;
+}
+.card{
+   display: flex;
+   justify-content:center;
+}
+.map{
+   left:400px;
+}
+.logo{
+   position: fixed;
+   justify-content: center;
+}
+.section{
+   width:100%;
+   min-height:100vh;
+   background-color: #ddd;
+
+}
+.container{
+   width:80%;
+   display:block;
+   margin:auto;
+   padding-top: 100px;
+}
+.content-section{
+   float:left;
+   width:55%;
+}
+.image-section{
+   float:right;
+   width:40%;
+
+}
+.image-section img{
+   width:100%;
+   height: auto;
+}
+.content-section .title{
+   text-transform:uppercase;
+   font-size:28px;
+}
+.content-section .content h3{
+   margin-top:20px;
+   color:#5d5d5d;
+}
+.content-section .content p{
+   margin-top:10px;
+   font-family:sans-serif;
+   font-size: 18px;
+   line-height: 1.5;
+}
+/*
+.content-section .content .button a{
+   background-color: #3d3d3d;
+   padding:12px 40px;
+   text-decoration: none;
+   color:#fff;
+   font-size:25px;
+   letter-spacing:1.5px;
+}*/
+.content-section .content .button a:hover{
+   background-color:#a52a2a ;
+   color:#fff;
+}
+
+.fa {
+   padding: 20px;
+   font-size: 30px;
+   width: 50px;
+   text-align: center;
+   text-decoration: none;
+   margin: 5px 2px;
+ }
+ 
+ .fa:hover {
+     opacity: 0.7;
+ }
+ 
+ .fa-facebook {
+   background: #3B5998;
+   color: white;
+ }
+ 
+ .fa-twitter {
+   background: #55ACEE;
+   color: white;
+ }
+ .fa-instagram {
+   background:#bb1000;
+   color: white;
+ }
+ </style>
+     </head>
+<body>
+    s
+    <header class="header">
+        <h1 class="header__h1">little panipuri shop</h1>
+        <nav class="header__nav">
+             <ul class="header__ul">
+                <li>
+                    <a href="panipurishop.html">Home</a>
+                   </li>
+                <li>
+                 <a href="panipurishop.html#menu">Menu</a>
+                </li>
+                <li>
+                 <a href="hours.html">Hours</a>
+                </li>
+                <li>
+                 <a href="contact.html">Order</a>
+                </li>
+                
+             </ul>
+        </nav>
+       </header>
+      <div class="hero">
+         
+       <figure>
+          <img src="IMG-20231216-WA0035.jpg" alt="panipuri ek number " width="1500" height="668" title="Panipuri lovers">
+          
+          <figcaption class="offscreen">Ekda Khaun tr Bagha</figcaption>
+      </figure>
+    
+    </div>
+<main class="main">
+    <article id="about" class="main__article about">
+        <h2>About <abbr title="little panipuri shop">LPPS</abbr></h2>
+        <P><abbr title="little panipuri shop">LPPS</abbr>&nbsp; was found in <time datetime="2022">2022</time> our shop is build from a <strong >love for panipuri</strong> 😊😊😊 . We hope our shop adds a uniqe and intrsting place to our little town
+         </P>
+         <aside class="about__qna">
+            <h3>panipuri QNA</h3>
+            <details >
+                <summary> where did panipuri come from
+                </summary>
+                <p class="about__qna-answer">
+                    Assumably invented in the<time datetime="1000"> 4 th century BC</time> the Magadha Empire in Bihar is the birth place of Pani Puri.
+                     There is no apparent documentation of it’s invention; Time does race it back to the state of Bihar. The very little information and it’s sources have only narrowed down to the two vast expanses of India one being Bihar other being Varanasi.
+                     (source: <cite><a href="www.mixstudio.in/history-of-pani-puri/" target="_blank">mixstudio.in</a></cite>)
+                </p>
+                </details>
+         </aside>
+    </article>
+</main>
+    
+    <footer class="footer">
+        <p>
+         <span  class="nowrap"> Copyright &copy;</span>
+          <span  class="nowrap">panacea cafe</span> 
+       </p>
+    </footer>
+</body>
+</html>
